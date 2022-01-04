@@ -5,11 +5,12 @@
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
+    background-color: #AEBCFA
   }
 
   .topnav {
     overflow: hidden;
-    background-color: #333;
+    background-color: rgb(71, 66, 66);
   }
   
   .topnav a {
