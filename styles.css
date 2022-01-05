@@ -59,14 +59,15 @@ body {
     padding: 6px;
     margin-top: 8px;
     margin-right: 16px;
-    background: #ddd;
+    background: rgb(45, 74, 119);
     font-size: 17px;
     border: none;
     cursor: pointer;
   }
   
   .topnav .search-container button:hover {
-    background: rgb(145, 82, 228);
+    background: rgb(85, 62, 187);
+    color: #fff;
   }
   
   
