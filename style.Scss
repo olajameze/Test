@@ -1,62 +1,49 @@
-$bubble-count: 50;
-$sway-type: "sway-left-to-right", "sway-right-to-left";
-
-@function random_range($min, $max) {
-  $rand: random();
-  $random_range: $min + floor($rand * (($max - $min) + 1));
-  @return $random_range;
+body {
+  margin: 0;
+  overflow: hidden;
 }
 
-@function sample($list) {
-  @return nth($list, random(length($list)));
+.background {
+  width: 100vw;
+  height: 100vh;
+  background: #3E1E68;
 }
 
-@for $i from 0 through $bubble-count {
+$particleSize: 20vmin;
+$animationDuration: 6s;
+$amount: 20;
+.background span {
+  width: $particleSize;
+  height: $particleSize;
+  border-radius: $particleSize;
+  backface-visibility: hidden;
+  position: absolute;
+  animation-name: move;
+  animation-duration: $animationDuration;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  $colors: (
+    #583C87,
+    #E45A84,
+    #FFACAC
+  );
+  @for $i from 1 through $amount {
     &:nth-child(#{$i}) {
-      --bubble-left-offset: #{random_range(0vw, 100vw)};
-      --bubble-radius: #{random_range(1vw, 10vw)};
-      --bubble-float-duration: #{random_range(6s, 12s)};
-      --bubble-sway-duration: #{random_range(4s, 6s)};
-      --bubble-float-delay: #{random_range(0s, 4s)};
-      --bubble-sway-delay: #{random_range(0s, 4s)};
-      --bubble-sway-type: #{sample($sway-type)};
+      color: nth($colors, random(length($colors)));
+      top: random(100) * 1%;
+      left: random(100) * 1%;
+      animation-duration: (random($animationDuration * 10) / 10) * 1s + 10s;
+      animation-delay: random(($animationDuration + 10s) * 10) / 10 * -1s;
+      transform-origin: (random(50) - 25) * 1vw (random(50) - 25) * 1vh;
+      $blurRadius: (random() + 0.5) * $particleSize * 0.5;
+      $x: if(random() > 0.5, -1, 1);
+      box-shadow: ($particleSize * 2 * $x) 0 $blurRadius currentColor;
     }
   }
-
-@keyframes float-up {
-  to {
-    transform: translateY(-175vh);
-  }
 }
 
-@keyframes sway-left-to-right {
-  from {
-    transform: translateX(-100%);
-  }
-
-  to {
-    transform: translateX(100%);
+@keyframes move {
+  100% {
+    transform: translate3d(0, 0, 1px) rotate(360deg);
   }
 }
-
-@keyframes sway-right-to-left {
-  from {
-    transform: translateX(100%);
-  }
-
-  to {
-    transform: translateX(-100%);
-  }
-}
-
-&::before {
-    position: absolute;
-    content: '';
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: hsla(183, 94%, 76%, 0.3);
-    border-radius: inherit;
-    animation: var(--bubble-sway-type) var(--bubble-sway-duration) var(--bubble-sway-delay) ease-in-out alternate infinite;
-  }
