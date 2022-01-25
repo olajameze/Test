@@ -201,11 +201,12 @@ p {
     margin: 50px auto;
     overflow: hidden;
     position: right;
+    float: right;
 }
 
 .about-left {
-    background-color: #21D4FD;
-    background-image: linear-gradient(19deg, #21D4FD 0%, #B721FF 100%);
+    background-color: #7769ac9c;
+    background-image: linear-gradient(19deg, #9275c9b6 0%, #947fe0ab 100%);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -215,7 +216,7 @@ p {
 }
 
 .about-left-content>div {
-    background: #12192c;
+    background: #251f30a8;
     padding: 4rem 4rem 2.5rem 5rem;
     text-align: center;
     border-radius: 12px 12px 0 0;
@@ -255,7 +256,7 @@ p {
     margin: 2.2rem 0 0.6rem 0;
     line-height: 1.2;
     padding-bottom: 1rem;
-    border-bottom: 2px solid #B721FF;
+    border-bottom: 2px solid #af81c4ce;
 }
 
 .about-left-content h3 {
@@ -266,7 +267,7 @@ p {
 }
 
 .icons {
-    background: #12192c;
+    background: #1d122c69;
     display: flex;
     justify-content: center;
     padding: 0.8rem 0;
@@ -295,7 +296,7 @@ p {
 }
 
 .about-right {
-    background: #12192c;
+    background: #342b3fbe;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -633,7 +634,7 @@ footer {
     left: 0;
     bottom: 0;
     width: 100%;
-    height: 10%;
+    height: 5%;
     font-size: 12px;
     background-color: rgba(151, 73, 223, 0.219);
     color: white;
